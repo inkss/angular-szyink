@@ -33,8 +33,8 @@
               }
             ],
             "styles": [
-              "src/styles.less",
-              "src/main.less"
+              "src/theme.less",
+              "src/styles.less"
             ],
             "scripts": []
           },
