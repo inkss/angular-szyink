@@ -11,15 +11,11 @@ import {RoutesModule} from './routes/routes.module';
 import {SharedModule} from './shared/shared.module';
 import {IconsProviderModule} from './icons-provider.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader/lib/http-loader';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 registerLocaleData(zh);
 
-// export function CreateTranslateLoader(http: HttpClient) {
-//   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-// }
-
-function CreateTranslateLoader(http: HttpClient) {
+export function CreateTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
