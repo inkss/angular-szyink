@@ -65,10 +65,15 @@ import {NzUploadModule} from 'ng-zorro-antd/upload';
 import {NzWaveModule} from 'ng-zorro-antd/core/wave';
 import {NzResizableModule} from 'ng-zorro-antd/resizable';
 import {NzPipesModule} from 'ng-zorro-antd/pipes';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
+  imports: [
+    TranslateModule
+  ],
   exports: [
+    TranslateModule,
     NzAffixModule,
     NzAlertModule,
     NzAnchorModule,
