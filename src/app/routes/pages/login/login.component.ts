@@ -9,12 +9,14 @@ import {TranslatorService} from 'src/app/core/translator/translator.service';
 export class LoginComponent implements OnInit {
 
   i18nObject: any = {}; // 国际化
+  language = 'zh';
 
-  constructor(private translator: TranslatorService) {
+  constructor(private translator: TranslatorService,) {
     this.i18nObject = this.translator.getI18nObject(['login']);
   }
 
   ngOnInit(): void {
+
   }
 
 }

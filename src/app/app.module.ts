@@ -12,6 +12,7 @@ import {SharedModule} from './shared/shared.module';
 import {IconsProviderModule} from './icons-provider.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { CoreModule } from './core/core.module';
 
 registerLocaleData(zh);
 
@@ -27,6 +28,7 @@ export function CreateTranslateLoader(http: HttpClient) {
     SharedModule,
     NgZorroAntdModule,
     IconsProviderModule,
+    CoreModule,
     BrowserModule,
     RoutesModule,
     HttpClientModule,
@@ -39,7 +41,9 @@ export function CreateTranslateLoader(http: HttpClient) {
       }
     })
   ],
-  providers: [{provide: NZ_I18N, useValue: zh_CN}],
+  providers: [
+    {provide: NZ_I18N, useValue: zh_CN}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
