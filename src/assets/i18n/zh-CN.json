@@ -1,6 +1,7 @@
 {
   "language": "zh-CN",
   "login": {
+    "name": "Angular 项目样例",
     "title": "登录"
   }
 }
