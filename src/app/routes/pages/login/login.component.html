@@ -12,19 +12,19 @@
               <span class="loginFormTitle">{{'login.title' | translate}}</span>
             </nz-form-item>
             <nz-form-item class="loginFormItem">
-              <nz-form-label nzNoColon class="bigLabel">账&nbsp;&nbsp;&nbsp;号</nz-form-label>
-              <nz-form-control nzErrorTip="请输入账号">
+              <nz-form-label nzNoColon class="bigLabel">{{'login.account' | translate}}</nz-form-label>
+              <nz-form-control nzErrorTip="{{'login.accountTip' | translate}}">
                 <nz-input-group nzSuffixIcon="user">
-                  <input type="text" nz-input formControlName="account" placeholder="请输入账号"/>
+                  <input type="text" nz-input formControlName="account" placeholder="{{'login.accountTip' | translate}}"/>
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
             <nz-form-item class="loginFormItem">
-              <nz-form-label nzNoColon class="bigLabel">密&nbsp;&nbsp;&nbsp;码</nz-form-label>
-              <nz-form-control nzErrorTip="请输入密码">
+              <nz-form-label nzNoColon class="bigLabel">{{'login.password' | translate}}</nz-form-label>
+              <nz-form-control nzErrorTip="{{'login.passwordTip' | translate}}">
                 <nz-input-group [nzSuffix]="suffixTemplate">
-                  <input [type]="passwordVisible ? 'text' : 'password'" nz-input placeholder="请输入密码"
-                         formControlName="password"/>
+                  <input [type]="passwordVisible ? 'text' : 'password'" nz-input
+                         placeholder="{{'login.passwordTip' | translate}}" formControlName="password"/>
                 </nz-input-group>
                 <ng-template #suffixTemplate>
                   <i nz-icon class="cursor-pointer"
@@ -34,12 +34,15 @@
               </nz-form-control>
             </nz-form-item>
             <nz-form-item class="loginFormItem">
-              <nz-form-label nzNoColon class="bigLabel">验证码</nz-form-label>
+              <nz-form-label nzNoColon class="bigLabel">{{'login.language' | translate}}</nz-form-label>
               <nz-form-control>
-                <app-slide-verify initText="向右滑动完成验证" successText="验证成功"></app-slide-verify>
+                <nz-select class="loginFormSelect" formControlName="language">
+                  <nz-option *ngFor="let item of languageList"
+                             [nzValue]="item.code" [nzLabel]="item.text"></nz-option>
+                </nz-select>
               </nz-form-control>
             </nz-form-item>
-            <button nz-button class="loginFormButton" nzType="primary">登&nbsp;&nbsp;录</button>
+            <button nz-button class="loginFormButton" nzType="primary">{{'login.loginBtn' | translate}}</button>
           </form>
         </div>
         <div class="loginInputRight">

@@ -1,7 +1,14 @@
 {
   "language": "zh-CN",
+  "appname": "一个小小的前端项目",
   "login": {
+    "title": "登录",
     "name": "Angular 项目样例",
-    "title": "登录"
+    "account": "账号",
+    "accountTip": "请输入账号",
+    "password": "密码",
+    "passwordTip": "请输入密码",
+    "language": "语言",
+    "loginBtn": "登录"
   }
 }

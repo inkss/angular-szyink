@@ -18,7 +18,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - [ ] 完善基础性功能
   - [ ] 伪后端调用
-  - [ ] 国际化支持
+  - [x] 国际化支持
   - [ ] 基础功能设定
 
 ### 下阶段计划
@@ -26,6 +26,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [ ] 登录页面/注册页面
 - [ ] 构建后台页面框架
 
-------
-
-最后编辑：2020/12/14 11点25分
+最后编辑：2020/12/24

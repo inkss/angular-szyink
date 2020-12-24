@@ -64,6 +64,23 @@
         .loginFormItem {
           margin-bottom: 0;
           padding-bottom: 10px;
+
+          .loginFormSelect {
+            ::ng-deep .ant-select-selector {
+              height: 40px !important;
+              border-radius: 4px !important;
+
+              ::ng-deep .ant-select-selection-search-input {
+                height: 40px !important;
+              }
+
+              ::ng-deep .ant-select-selection-item,
+              ::ng-deep .ant-select-selection-placeholder {
+                line-height: 40px !important;
+              }
+
+            }
+          }
         }
 
         ::ng-deep .ant-input-affix-wrapper {
@@ -71,6 +88,10 @@
           border-radius: 4px;
           font-size: 18px;
         }
+      }
+      
+      .bigLabel {
+        letter-spacing: 15px;
       }
     }
 
@@ -106,5 +127,4 @@
   }
 
 }
-
 

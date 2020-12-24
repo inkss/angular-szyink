@@ -1,0 +1,14 @@
+{
+  "language": "zh-TW",
+  "appname": "一個小小的前端項目",
+  "login": {
+    "title": "登入",
+    "name": "Angular 項目樣例",
+    "account": "帳號",
+    "accountTip": "請輸入帳號",
+    "password": "密碼",
+    "passwordTip": "請輸入密碼",
+    "language": "語言",
+    "loginBtn": "登入"
+  }
+}
