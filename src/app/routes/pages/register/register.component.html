@@ -1,1 +1,44 @@
-<p>register works!</p>
+<div class="header-register">
+  <div class="header-title">{{"appname" | translate}}</div>
+</div>
+<nz-layout class="app-layout">
+  <nz-content class="register">
+    <div class="inner-content">
+      <div class="main-content">
+        <div class="title-content">{{"login.register" | translate}}</div>
+        <hr>
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userName">{{"register.userName" | translate}}</nz-form-label>
+            <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="{{'placeholder.account' | translate}}" nzHasFeedback>
+              <input placeholder="{{'placeholder.account' | translate}}"
+                     maxlength="20" nz-input formControlName="userName" id="userName"/>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userPwd">{{"register.userPwd" | translate}}</nz-form-label>
+            <nz-form-control [nzSm]="20" [nzXs]="24" [nzErrorTip]="errorTplPwd" nzHasFeedback>
+              <nz-input-group [nzSuffix]="suffixPwd">
+                <input [type]="passwordVisible ? 'text' : 'password'"
+                       placeholder="{{'placeholder.password' | translate}}"
+                       maxlength="16" nz-input formControlName="userPwd" id="userPwd"/>
+              </nz-input-group>
+              <ng-template #suffixPwd>
+                <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" class="cursor-pointer"
+                   (click)="passwordVisible = !passwordVisible"></i>
+              </ng-template>
+              <ng-template #errorTplPwd let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                  {{'placeholder.password' | translate}}
+                </ng-container>
+                <ng-container *ngIf="control.hasError('weakPwd')">
+                  {{'placeholder.validPassword' | translate}}
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </div>
+    </div>
+  </nz-content>
+</nz-layout>

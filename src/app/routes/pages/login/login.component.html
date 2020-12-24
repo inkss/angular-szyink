@@ -14,19 +14,19 @@
             </nz-form-item>
             <nz-form-item class="loginFormItem">
               <nz-form-label nzNoColon class="bigLabel">{{'login.account' | translate}}</nz-form-label>
-              <nz-form-control nzErrorTip="{{'login.accountTip' | translate}}">
+              <nz-form-control nzErrorTip="{{'placeholder.account' | translate}}">
                 <nz-input-group nzSuffixIcon="user">
                   <input type="text" nz-input formControlName="account" maxlength="20"
-                         placeholder="{{'login.accountTip' | translate}}"/>
+                         placeholder="{{'placeholder.account' | translate}}"/>
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
             <nz-form-item class="loginFormItem">
               <nz-form-label nzNoColon class="bigLabel">{{'login.password' | translate}}</nz-form-label>
-              <nz-form-control nzErrorTip="{{'login.passwordTip' | translate}}">
+              <nz-form-control nzErrorTip="{{'placeholder.password' | translate}}">
                 <nz-input-group [nzSuffix]="suffixTemplate">
                   <input [type]="passwordVisible ? 'text' : 'password'" nz-input maxlength="16"
-                         placeholder="{{'login.passwordTip' | translate}}" formControlName="password"/>
+                         placeholder="{{'placeholder.password' | translate}}" formControlName="password"/>
                 </nz-input-group>
                 <ng-template #suffixTemplate>
                   <i nz-icon class="cursor-pointer"
@@ -44,7 +44,7 @@
                 </nz-select>
               </nz-form-control>
             </nz-form-item>
-            <button nz-button class="loginFormButton" nzType="primary">{{'login.loginBtn' | translate}}</button>
+            <button nz-button class="loginFormButton" nzType="primary">{{'login.title' | translate}}</button>
           </form>
         </div>
         <div class="loginInputRight">

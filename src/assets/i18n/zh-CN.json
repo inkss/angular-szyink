@@ -1,15 +1,31 @@
 {
   "language": "zh-CN",
   "appname": "一个小小的前端项目",
+  "placeholder": {
+    "normal": "请补全必填信息",
+    "plzChoose": "请选择",
+    "plzInput": "请输入",
+    "account": "请输入账号",
+    "password": "请输入密码",
+    "newPassword": "请输入新密码",
+    "checkPassword": "请确认您的密码",
+    "checkErrorPassword": "您输入的两个密码不一致！",
+    "validPassword": "必须包含字母、数字，长度8~16位！",
+    "telPhone": "请输入手机号",
+    "eMail": "请输入邮箱"
+  },
   "login": {
     "title": "登录",
     "name": "Angular 项目样例",
     "account": "账号",
-    "accountTip": "请输入账号",
     "password": "密码",
-    "passwordTip": "请输入密码",
     "language": "语言",
-    "loginBtn": "登录",
     "register": "在线注册"
+  },
+  "register": {
+    "userName": "账号",
+    "userPwd": "密码",
+    "userTel": "手机",
+    "userMail": "邮箱"
   }
 }
