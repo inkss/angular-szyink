@@ -9,6 +9,7 @@
     "password": "密码",
     "passwordTip": "请输入密码",
     "language": "语言",
-    "loginBtn": "登录"
+    "loginBtn": "登录",
+    "register": "在线注册"
   }
 }

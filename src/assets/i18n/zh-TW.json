@@ -9,6 +9,7 @@
     "password": "密碼",
     "passwordTip": "請輸入密碼",
     "language": "語言",
-    "loginBtn": "登入"
+    "loginBtn": "登入",
+    "register": "線上註冊"
   }
 }

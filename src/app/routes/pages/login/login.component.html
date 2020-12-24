@@ -6,16 +6,18 @@
           <span class="title">{{'login.name' | translate}}</span>
         </div>
         <div class="row-12 loginInputLeft">
-          <form nz-form [formGroup]="validateForm" class="loginForm">
+          <form nz-form [formGroup]="validateForm" class="loginForm" (ngSubmit)="submitForm($event)">
             <nz-form-item class="loginFormTop">
               <span class="loginFormLabel bgMain">&nbsp;</span>
               <span class="loginFormTitle">{{'login.title' | translate}}</span>
+              <span><a class="register" (click)="navigateRegister()">{{'login.register' | translate}}</a></span>
             </nz-form-item>
             <nz-form-item class="loginFormItem">
               <nz-form-label nzNoColon class="bigLabel">{{'login.account' | translate}}</nz-form-label>
               <nz-form-control nzErrorTip="{{'login.accountTip' | translate}}">
                 <nz-input-group nzSuffixIcon="user">
-                  <input type="text" nz-input formControlName="account" placeholder="{{'login.accountTip' | translate}}"/>
+                  <input type="text" nz-input formControlName="account" maxlength="20"
+                         placeholder="{{'login.accountTip' | translate}}"/>
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
@@ -23,7 +25,7 @@
               <nz-form-label nzNoColon class="bigLabel">{{'login.password' | translate}}</nz-form-label>
               <nz-form-control nzErrorTip="{{'login.passwordTip' | translate}}">
                 <nz-input-group [nzSuffix]="suffixTemplate">
-                  <input [type]="passwordVisible ? 'text' : 'password'" nz-input
+                  <input [type]="passwordVisible ? 'text' : 'password'" nz-input maxlength="16"
                          placeholder="{{'login.passwordTip' | translate}}" formControlName="password"/>
                 </nz-input-group>
                 <ng-template #suffixTemplate>
@@ -47,6 +49,9 @@
         </div>
         <div class="loginInputRight">
           <div class="loginImgArea"></div>
+        </div>
+        <div class="loginCopyright">
+          <div class="copLabel"><span>&copy; {{settings.app.year}}&nbsp;{{ settings.app.name }}</span></div>
         </div>
       </div>
     </div>

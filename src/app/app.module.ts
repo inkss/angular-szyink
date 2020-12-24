@@ -12,7 +12,9 @@ import {SharedModule} from './shared/shared.module';
 import {IconsProviderModule} from './shared/icons-provider.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { CoreModule } from './core/core.module';
+import {CoreModule} from './core/core.module';
+import {RouteReuseStrategy} from '@angular/router';
+import {SimpleReuseStrategy} from './core/interceptor/SimpleReuseStrategy';
 
 registerLocaleData(zh);
 
@@ -42,7 +44,8 @@ export function CreateTranslateLoader(http: HttpClient) {
     })
   ],
   providers: [
-    {provide: NZ_I18N, useValue: zh_CN}
+    {provide: NZ_I18N, useValue: zh_CN},
+    {provide: RouteReuseStrategy, useClass: SimpleReuseStrategy}
   ],
   bootstrap: [AppComponent]
 })
