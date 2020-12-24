@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 **一个小小的前端框架学习~**
 
-项目定位纯前端，基础环境 `Angular` ，基础前端框架 `NG-ZORRO` ，所有交互性数据由 *ngStorage* 存储在 IndexedDB 中。
+项目定位纯前端，基础环境 `Angular` ，基础前端框架 `NG-ZORRO` ，所有交互数据通过 *ngStorage* 存储于 IndexedDB。
 
 项目通过 Github Actions 作自动部署，使用工具： `angular-cli-ghpages` 。
 

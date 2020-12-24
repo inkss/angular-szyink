@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to deploy blog.
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Cache node modules
         uses: actions/cache@v1
         id: cache
@@ -28,6 +30,9 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-      - name: Clone File
+      - name: Deploy Project
         run: |
-          npm run deploy
+          npm run ng deploy --base-href=./ --cname=angular.inkss.cn"
+      - name: Get the output
+        run: |
+          echo "${{ steps.deploy.outputs.notify }}"
