@@ -6,7 +6,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 **一个小小的前端框架学习~**
 
-项目目标为纯前端，基础环境 `Angular` ，基础前端框架 `NG-ZORRO` 。不打算接入后端，但是会使用标准掉发模拟调用，使用 *json* 实现显示。
+项目定位纯前端，基础环境 `Angular` ，基础前端框架 `NG-ZORRO` ，所有交互性数据由 *ngStorage* 存储在 IndexedDB 中。
+
+项目通过 Github Actions 作自动部署，使用工具： `angular-cli-ghpages` 。
+
+项目访问地址：[一个小小的前端项目](https://angular.inkss.cn/)
 
 ## 计划
 
@@ -27,3 +31,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [ ] 构建后台页面框架
 
 最后编辑：2020/12/24
+
+------
+
+结构：ed..
