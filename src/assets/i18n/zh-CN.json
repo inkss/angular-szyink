@@ -26,6 +26,7 @@
   "register": {
     "userName": "账号",
     "userPwd": "密码",
+    "confirmPwd": "确认密码",
     "userTel": "手机",
     "userMail": "邮箱"
   }

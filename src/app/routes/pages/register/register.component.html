@@ -19,17 +19,18 @@
           <!--密码-->
           <nz-form-item>
             <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userPwd">{{"register.userPwd" | translate}}</nz-form-label>
-            <nz-form-control [nzSm]="20" [nzXs]="24" [nzErrorTip]="errorTplPwd" nzHasFeedback>
+            <nz-form-control [nzSm]="20" [nzXs]="24" [nzErrorTip]="errorPwd" nzHasFeedback>
               <nz-input-group [nzSuffix]="suffixPwd">
-                <input [type]="passwordVisible ? 'text' : 'password'"
+                <input [type]="pwdVisible ? 'text' : 'password'"
+                       maxlength="16" nz-input formControlName="userPwd" id="userPwd"
                        placeholder="{{'placeholder.password' | translate}}"
-                       maxlength="16" nz-input formControlName="userPwd" id="userPwd"/>
+                       (ngModelChange)="validList.confirmPassword()"/>
               </nz-input-group>
               <ng-template #suffixPwd>
-                <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" class="cursor-pointer"
-                   (click)="passwordVisible = !passwordVisible"></i>
+                <i nz-icon [nzType]="pwdVisible ? 'eye-invisible' : 'eye'" class="cursor-pointer"
+                   (click)="pwdVisible = !pwdVisible"></i>
               </ng-template>
-              <ng-template #errorTplPwd let-control>
+              <ng-template #errorPwd let-control>
                 <ng-container *ngIf="control.hasError('required')">
                   {{'placeholder.password' | translate}}
                 </ng-container>
@@ -40,6 +41,29 @@
             </nz-form-control>
           </nz-form-item>
           <!--确认密码-->
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24"
+                           nzFor="confirmPwd">{{"register.confirmPwd" | translate}}</nz-form-label>
+            <nz-form-control [nzSm]="20" [nzXs]="24" [nzErrorTip]="errorConfirmPwd" nzHasFeedback>
+              <nz-input-group [nzSuffix]="confirmPwd">
+                <input [type]="confirmPwdVisible ? 'text' : 'password'"
+                       placeholder="{{'placeholder.checkPassword' | translate}}"
+                       maxlength="16" nz-input formControlName="confirmPwd" id="confirmPwd"/>
+              </nz-input-group>
+              <ng-template #confirmPwd>
+                <i nz-icon [nzType]="confirmPwdVisible ? 'eye-invisible' : 'eye'" class="cursor-pointer"
+                   (click)="confirmPwdVisible = !confirmPwdVisible"></i>
+              </ng-template>
+              <ng-template #errorConfirmPwd let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                  {{'placeholder.password' | translate}}
+                </ng-container>
+                <ng-container *ngIf="control.hasError('confirm')">
+                  {{'placeholder.checkErrorPassword' | translate}}
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
         </form>
       </div>
     </div>
