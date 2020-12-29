@@ -16,7 +16,10 @@ export class TranslatorService {
     this.availableLang = this.settings.getBGServices('language')
       ? this.settings.getBGServices('language')
       : [{code: 'zh-CN', text: '简体中文'}];
-    this.useLanguage();
+    const language = this.settings.getBGServices('defaultLanguage')
+      ? this.settings.getBGServices('defaultLanguage')
+      : this.defaultLanguage;
+    this.useLanguage(language);
   }
 
   useLanguage(lang: string = this.defaultLanguage) {

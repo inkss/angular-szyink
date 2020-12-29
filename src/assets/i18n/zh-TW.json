@@ -20,7 +20,8 @@
     "account": "帳號",
     "password": "密碼",
     "language": "語言",
-    "register": "線上註冊"
+    "register": "線上註冊",
+    "plzRegister": "當前系統中無注册帳戶，請先註冊！"
   },
   "register": {
     "userName": "帳號",

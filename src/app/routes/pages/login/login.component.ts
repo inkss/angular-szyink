@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   router: Router;
   validateForm: FormGroup;
   passwordVisible = false;
-  languageList: Array<{ code: any, text: any }> = [];
+  languageList: Array<{ code: any, name: any }> = [];
+  i18nObject: any = {};
 
   constructor(public settings: SettingsService,
               private translator: TranslatorService,
@@ -29,20 +30,11 @@ export class LoginComponent implements OnInit {
               private user: UserService,
               private title: Title) {
     SimpleReuseStrategy.deleteAllRouteSnapshot();  // 删除全部路由快照
-    this.languageList = this.settings.getBGServices('language');
-
+    this.languageList = this.settings.getBGServices('language'); // 获取语言列表
     this.validateForm = this.formBuilder.group({
       account: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      language: ['zh-CN', [Validators.required]]
-    });
-
-    // 监听语言下拉框设置全局语言
-    this.validateForm.get('language').valueChanges.subscribe(value => {
-      this.translator.useLanguage(value);
-      this.translator.getI18nObjectObserver('appname').subscribe(value => {
-        this.title.setTitle(value);
-      });
+      language: [this.settings.getBGServices('defaultLanguage'), [Validators.required]]
     });
   }
 
@@ -58,7 +50,7 @@ export class LoginComponent implements OnInit {
         if (value) {
 
         } else {
-          this.message.error('当前系统中无注册账户,请先注册！');
+          this.message.error(this.i18nObject['plzRegister']);
         }
       });
     }
@@ -71,7 +63,22 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initLanguage();
     this.router = this.injector.get(Router);
+
+    // 监听语言下拉框设置全局语言
+    this.validateForm.get('language').valueChanges.subscribe(value => {
+      this.translator.useLanguage(value);
+      this.initLanguage();
+    });
+  }
+
+  // 加载语言
+  private initLanguage() {
+    this.translator.getI18nObjectObserver(['appname', 'login']).subscribe(value => {
+      this.title.setTitle(value.appname);
+      this.i18nObject = value.login;
+    });
   }
 
 }

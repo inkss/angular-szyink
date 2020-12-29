@@ -8,6 +8,7 @@
         <div class="title-content">{{"login.register" | translate}}</div>
         <hr>
         <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+          <!--账号-->
           <nz-form-item>
             <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userName">{{"register.userName" | translate}}</nz-form-label>
             <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="{{'placeholder.account' | translate}}" nzHasFeedback>
@@ -15,6 +16,7 @@
                      maxlength="20" nz-input formControlName="userName" id="userName"/>
             </nz-form-control>
           </nz-form-item>
+          <!--密码-->
           <nz-form-item>
             <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userPwd">{{"register.userPwd" | translate}}</nz-form-label>
             <nz-form-control [nzSm]="20" [nzXs]="24" [nzErrorTip]="errorTplPwd" nzHasFeedback>
@@ -37,6 +39,7 @@
               </ng-template>
             </nz-form-control>
           </nz-form-item>
+          <!--确认密码-->
         </form>
       </div>
     </div>
