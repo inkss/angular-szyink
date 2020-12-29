@@ -20,11 +20,13 @@
     "account": "账号",
     "password": "密码",
     "language": "语言",
-    "register": "在线注册"
+    "register": "在线注册",
+    "plzRegister": "当前系统中无注册账户,请先注册！"
   },
   "register": {
     "userName": "账号",
     "userPwd": "密码",
+    "confirmPwd": "确认密码",
     "userTel": "手机",
     "userMail": "邮箱"
   }
