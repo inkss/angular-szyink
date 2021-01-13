@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "live": "ng serve --port 5500 --host 0.0.0.0 --public-host=vs.szyink.com",
     "build": "ng build  --base-href=./ --prod",
     "deploy": "ng deploy --base-href=./ --cname=angular.inkss.cn",
     "test": "ng test",
