@@ -1,6 +1,8 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {NzModalService} from 'ng-zorro-antd/modal';
+import {NzMessageService} from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +16,9 @@ export class RegisterComponent implements OnInit {
   router: Router;
 
   constructor(private fb: FormBuilder,
-              private injector: Injector,) {
+              private injector: Injector,
+              private modal: NzModalService,
+              private message: NzMessageService) {
   }
 
   ngOnInit(): void {
@@ -23,7 +27,9 @@ export class RegisterComponent implements OnInit {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
       userPwd: [null, [Validators.required, this.validList.validateWeakPwd]],
-      confirmPwd: [null, [Validators.required, this.validList.validateCheckPwd]]
+      confirmPwd: [null, [Validators.required, this.validList.validateCheckPwd]],
+      agree: [false, [Validators.requiredTrue]],
+      captchaSliding: [false, [Validators.requiredTrue]],
     });
   }
 
@@ -47,11 +53,42 @@ export class RegisterComponent implements OnInit {
     },
     confirmPassword: () => {
       setTimeout(() => this.validateForm.controls.confirmPwd.updateValueAndValidity());
-    }
+    },
+    onVerifyChecked: (result: boolean) => {
+      this.validateForm.get('captchaSliding').setValue(result);
+    },
   };
 
   submitForm(): void {
+    for (const i in this.validateForm.controls) {
+      this.validateForm.controls[i].markAsDirty();
+      this.validateForm.controls[i].updateValueAndValidity();
+    }
+  }
 
+  // 服务协议
+  openAgreement(e: MouseEvent): void {
+    e.preventDefault();
+    e.stopPropagation();
+    const modal = this.modal.create({
+      nzTitle: '隐私协议',
+      nzContent: '这里是隐私协议',
+      nzWidth: 750,
+      nzFooter: [
+        {
+          label: '取消', onClick: () => {
+            this.validateForm.get('agree').setValue(false);
+            modal.destroy()
+          }
+        },
+        {
+          label: '确认', onClick: () => {
+            this.validateForm.get('agree').setValue(true);
+            modal.destroy();
+          }
+        }
+      ]
+    });
   }
 
 }

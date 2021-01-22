@@ -64,6 +64,26 @@
               </ng-template>
             </nz-form-control>
           </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userName">验证码</nz-form-label>
+            <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="请向右滑动完成验证" nzHasFeedback>
+              <input formControlName="captchaSliding" id="captchaSliding" hidden nz-input/>
+              <app-slide-verify initText="向右滑动完成验证" successText="验证成功"
+                                (onVerifyChecked)="validList.onVerifyChecked($event)"></app-slide-verify>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item nz-row class="register-area">
+            <nz-form-control [nzSpan]="24" [nzOffset]="0" nzErrorTip="请勾选隐私协议">
+              <label nz-checkbox formControlName="agree">
+                <span>我已阅读并同意接受 <a (click)="openAgreement($event)">《隐私协议》</a></span>
+              </label>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item nz-row class="register-area">
+            <nz-form-control [nzSpan]="24" [nzOffset]="0">
+              <button nz-button nzType="primary" [nzBlock]="true" class="submit-button">用户申请</button>
+            </nz-form-control>
+          </nz-form-item>
         </form>
       </div>
     </div>

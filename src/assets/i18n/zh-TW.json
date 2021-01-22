@@ -26,6 +26,7 @@
   "register": {
     "userName": "帳號",
     "userPwd": "密碼",
+    "confirmPwd": "確認密碼",
     "userTel": "手機",
     "userMail": "郵箱"
   }
