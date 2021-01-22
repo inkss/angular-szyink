@@ -4,7 +4,11 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class SettingsService {
-  public app: any;
+  public app: {
+    name: any,
+    description: any,
+    year: any
+  };
   public services: any;
 
   constructor() {
