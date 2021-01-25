@@ -25,7 +25,7 @@
               <nz-form-label nzNoColon class="bigLabel">{{'login.password' | translate}}</nz-form-label>
               <nz-form-control nzErrorTip="{{'placeholder.password' | translate}}">
                 <nz-input-group [nzSuffix]="suffixTemplate">
-                  <input [type]="passwordVisible ? 'text' : 'password'" nz-input maxlength="16"
+                  <input [type]="passwordVisible ? 'text' : 'password'" nz-input maxlength="16" autocomplete="off"
                          placeholder="{{'placeholder.password' | translate}}" formControlName="password"/>
                 </nz-input-group>
                 <ng-template #suffixTemplate>

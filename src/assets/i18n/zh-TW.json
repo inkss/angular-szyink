@@ -12,7 +12,9 @@
     "checkErrorPassword": "您輸入的兩個密碼不一致！",
     "validPassword": "必須包含字母、數位，長度8~16比特！",
     "telPhone": "請輸入手機號",
-    "eMail": "請輸入郵箱"
+    "eMail": "請輸入郵箱",
+    "captchaMsg": "請向右滑動完成驗證",
+    "captchaSuccess": "驗證成功"
   },
   "login": {
     "title": "登入",
@@ -28,6 +30,13 @@
     "userPwd": "密碼",
     "confirmPwd": "確認密碼",
     "userTel": "手機",
-    "userMail": "郵箱"
+    "userMail": "郵箱",
+    "captchaSliding": "驗證碼",
+    "submitButton": "用戶申請",
+    "agreeMsg": "請勾選隱私協定",
+    "agreeMsg1": "我已閱讀並同意接受",
+    "agreeMsg2": "《隱私協定》",
+    "msgTitle": "隱私協定",
+    "msgContent": "隱私協定內容"
   }
 }

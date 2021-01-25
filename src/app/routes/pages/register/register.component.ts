@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NzModalService} from 'ng-zorro-antd/modal';
 import {NzMessageService} from 'ng-zorro-antd/message';
+import {TranslatorService} from '../../../core/translator/translator.service';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,8 @@ import {NzMessageService} from 'ng-zorro-antd/message';
   styleUrls: ['./register.component.less']
 })
 export class RegisterComponent implements OnInit {
+  i18List: Array<any>;
+
   pwdVisible = false;
   confirmPwdVisible = false;
   validateForm: FormGroup;
@@ -18,7 +21,9 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private injector: Injector,
               private modal: NzModalService,
-              private message: NzMessageService) {
+              private message: NzMessageService,
+              private translator: TranslatorService,) {
+    this.i18List = this.translator.getI18nObject('register');
   }
 
   ngOnInit(): void {
@@ -71,14 +76,14 @@ export class RegisterComponent implements OnInit {
     e.preventDefault();
     e.stopPropagation();
     const modal = this.modal.create({
-      nzTitle: '隐私协议',
-      nzContent: '这里是隐私协议',
+      nzTitle: this.i18List['msgTitle'],
+      nzContent: this.i18List['msgContent'],
       nzWidth: 750,
       nzFooter: [
         {
           label: '取消', onClick: () => {
             this.validateForm.get('agree').setValue(false);
-            modal.destroy()
+            modal.destroy();
           }
         },
         {

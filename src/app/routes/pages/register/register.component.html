@@ -21,7 +21,7 @@
             <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userPwd">{{"register.userPwd" | translate}}</nz-form-label>
             <nz-form-control [nzSm]="20" [nzXs]="24" [nzErrorTip]="errorPwd" nzHasFeedback>
               <nz-input-group [nzSuffix]="suffixPwd">
-                <input [type]="pwdVisible ? 'text' : 'password'"
+                <input [type]="pwdVisible ? 'text' : 'password'" autocomplete="off"
                        maxlength="16" nz-input formControlName="userPwd" id="userPwd"
                        placeholder="{{'placeholder.password' | translate}}"
                        (ngModelChange)="validList.confirmPassword()"/>
@@ -46,7 +46,7 @@
                            nzFor="confirmPwd">{{"register.confirmPwd" | translate}}</nz-form-label>
             <nz-form-control [nzSm]="20" [nzXs]="24" [nzErrorTip]="errorConfirmPwd" nzHasFeedback>
               <nz-input-group [nzSuffix]="confirmPwd">
-                <input [type]="confirmPwdVisible ? 'text' : 'password'"
+                <input [type]="confirmPwdVisible ? 'text' : 'password'" autocomplete="off"
                        placeholder="{{'placeholder.checkPassword' | translate}}"
                        maxlength="16" nz-input formControlName="confirmPwd" id="confirmPwd"/>
               </nz-input-group>
@@ -64,24 +64,32 @@
               </ng-template>
             </nz-form-control>
           </nz-form-item>
+          <!--验证-->
           <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="userName">验证码</nz-form-label>
-            <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="请向右滑动完成验证" nzHasFeedback>
+            <nz-form-label [nzSm]="4" [nzXs]="24"
+                           nzFor="captchaSliding">{{"register.captchaSliding" | translate}}</nz-form-label>
+            <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="{{'placeholder.captchaMsg' | translate}}"
+                             nzHasFeedback>
               <input formControlName="captchaSliding" id="captchaSliding" hidden nz-input/>
-              <app-slide-verify initText="向右滑动完成验证" successText="验证成功"
+              <app-slide-verify initText="{{'placeholder.captchaMsg' | translate}}"
+                                successText="{{'placeholder.captchaSuccess' | translate}}"
                                 (onVerifyChecked)="validList.onVerifyChecked($event)"></app-slide-verify>
             </nz-form-control>
           </nz-form-item>
+          <!--协议-->
           <nz-form-item nz-row class="register-area">
-            <nz-form-control [nzSpan]="24" [nzOffset]="0" nzErrorTip="请勾选隐私协议">
+            <nz-form-control [nzSpan]="24" [nzOffset]="0" nzErrorTip="{{'register.agreeMsg' | translate}}">
               <label nz-checkbox formControlName="agree">
-                <span>我已阅读并同意接受 <a (click)="openAgreement($event)">《隐私协议》</a></span>
+                <span>{{'register.agreeMsg1' | translate}} <a
+                  (click)="openAgreement($event)">{{'register.agreeMsg2' | translate}}</a></span>
               </label>
             </nz-form-control>
           </nz-form-item>
+          <!--提交-->
           <nz-form-item nz-row class="register-area">
             <nz-form-control [nzSpan]="24" [nzOffset]="0">
-              <button nz-button nzType="primary" [nzBlock]="true" class="submit-button">用户申请</button>
+              <button nz-button nzType="primary" [nzBlock]="true"
+                      class="submit-button">{{'register.submitButton' | translate}}</button>
             </nz-form-control>
           </nz-form-item>
         </form>

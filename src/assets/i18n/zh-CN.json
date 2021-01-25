@@ -12,7 +12,9 @@
     "checkErrorPassword": "您输入的两个密码不一致！",
     "validPassword": "必须包含字母、数字，长度8~16位！",
     "telPhone": "请输入手机号",
-    "eMail": "请输入邮箱"
+    "eMail": "请输入邮箱",
+    "captchaMsg": "请向右滑动完成验证",
+    "captchaSuccess": "验证成功"
   },
   "login": {
     "title": "登录",
@@ -28,6 +30,13 @@
     "userPwd": "密码",
     "confirmPwd": "确认密码",
     "userTel": "手机",
-    "userMail": "邮箱"
+    "userMail": "邮箱",
+    "captchaSliding": "验证码",
+    "submitButton": "用户申请",
+    "agreeMsg": "请勾选隐私协议",
+    "agreeMsg1": "我已阅读并同意接受",
+    "agreeMsg2": "《隐私协议》",
+    "msgTitle": "隐私协议",
+    "msgContent": "隐私协议内容"
   }
 }

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {SettingsService} from '../settings/settings.service';
 import {Observable, Observer} from 'rxjs';
+import {NzI18nService, zh_CN, zh_TW} from 'ng-zorro-antd/i18n';
 
 @Injectable()
 export class TranslatorService {
@@ -10,7 +11,8 @@ export class TranslatorService {
   availableLang: any;
 
   constructor(private translate: TranslateService,
-              private settings: SettingsService) {
+              private settings: SettingsService,
+              private i18n: NzI18nService) {
 
     translate.setDefaultLang(this.defaultLanguage);
     this.availableLang = this.settings.getBGServices('language')
@@ -24,6 +26,17 @@ export class TranslatorService {
 
   useLanguage(lang: string = this.defaultLanguage) {
     this.translate.use(lang);
+    switch (lang) {
+      case 'zh-CN':
+        this.i18n.setLocale(zh_CN);
+        break;
+      case 'zh-TW':
+        this.i18n.setLocale(zh_TW);
+        break;
+      default:
+        this.i18n.setLocale(zh_CN);
+        break;
+    }
   }
 
   getAvailableLanguages() {
